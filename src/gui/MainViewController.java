@@ -25,6 +25,9 @@ public class MainViewController implements Initializable {
 	private MenuItem menuItemProduct;
 	
 	@FXML
+	private MenuItem menuCategory;
+	
+	@FXML
 	private MenuItem menuItemAbout;
 	
 	@FXML
@@ -35,6 +38,11 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void onMenuItemProductAction() {
 		System.out.println("onMenuItemProductAction");
+	}
+	
+	@FXML
+	public void onMenuItemCategory() {
+		loadView("/gui/CategoryList.fxml");
 	}
 	
 	@FXML
