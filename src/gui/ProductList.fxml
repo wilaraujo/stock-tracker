@@ -30,6 +30,8 @@
         <columns>
           <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="tableColumnCategory" prefWidth="75.0" text="Category" />
+            <TableColumn fx:id="tableColumnPrice" prefWidth="75.0" text="Price" />
         </columns>
       </TableView>
    </children>

@@ -10,6 +10,7 @@ import db.DbIntegrityException;
 import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Utils;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.entities.Category;
 import model.entities.Product;
 import model.services.ProductService;
 
@@ -37,6 +39,12 @@ public class ProductListController implements Initializable, DataChangeListener 
 
 	@FXML
 	private TableColumn<Product, String> tableColumnName;
+	
+	@FXML
+	private TableColumn<Category, String> tableColumnCategory;
+	
+	@FXML
+	private TableColumn<Product, Double> tableColumnPrice;
 	
 	@FXML
 	private Button btNew;
@@ -103,9 +111,22 @@ public class ProductListController implements Initializable, DataChangeListener 
 	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+		Utils.formatTableColumnDouble(tableColumnPrice, 2);
+		
+		// Custom cell value factory returning values based on the actual type
+		tableColumnCategory.setCellValueFactory(cellData -> {
+		    Object value = cellData.getValue();
+		    if (value instanceof Product) {
+		        return new SimpleStringProperty(((Product) value).getCategory().getName());
+		    } else {
+		        return new SimpleStringProperty("");
+		    }
+		});
 		
 		Stage stage = (Stage) Main.getMainScene().getWindow();
 		tableViewProduct.prefHeightProperty().bind(stage.heightProperty());
+
 	}
 	
 	public void updateTableView() {
