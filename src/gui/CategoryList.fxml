@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="202.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CategoryListController">
+<VBox prefHeight="202.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CategoryListController">
    <children>
       <Label text="Category Registration">
          <padding>
@@ -22,6 +22,8 @@
       <ToolBar prefHeight="40.0" prefWidth="200.0">
         <items>
           <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" text="New" />
+            <Button fx:id="btEdit" mnemonicParsing="false" onAction="#onBtEditAction" text="Edit" />
+            <Button fx:id="btRemove" mnemonicParsing="false" onAction="#onBtRemoveAction" text="Remove" />
         </items>
       </ToolBar>
       <TableView fx:id="tableViewCategory" prefHeight="200.0" prefWidth="200.0">
