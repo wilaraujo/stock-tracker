@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
 	@EmbeddedId
-	private OrderItemPK id = new OrderItemPK();
+	private final OrderItemPK id = new OrderItemPK();
 	
 	private int quantity;
 	private Double price;

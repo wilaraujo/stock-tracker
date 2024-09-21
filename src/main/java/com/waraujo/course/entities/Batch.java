@@ -2,13 +2,12 @@ package com.waraujo.course.entities;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_batch")
-public class Batch implements Lot {
+public class Batch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
